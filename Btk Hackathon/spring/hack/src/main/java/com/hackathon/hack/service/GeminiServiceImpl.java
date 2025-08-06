@@ -43,7 +43,7 @@ public class GeminiServiceImpl implements IGeminiService {
     requestDto.setContents(listcntntdto);
 
 
-    String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAQ5IGMk37OmHna9Y0Mjhu_0Tvxj7lPbmw";
+    String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCYuw066hc-Zq-0y2irXIp_nVdSH7laWWs";
     ResponseDto response = restTemplate.postForObject(url,requestDto,ResponseDto.class);
     String description = response.getCandidates().get(0).getContent().getParts().get(0).getText();
     System.out.println(response);

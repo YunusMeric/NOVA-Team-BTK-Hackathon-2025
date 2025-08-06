@@ -35,7 +35,7 @@ function App() {
       });
       if (!response1.ok) throw new Error("Görsel analizinden beklenmeyen cevap alındı.");
       const descriptionText = await response1.text();
-      
+
       setDescription(descriptionText);
 
       const response2 = await fetch("http://localhost:8000/generate-marketing", {
@@ -145,7 +145,7 @@ function App() {
             📋
           </button>
           <h3>Pazarlama Önerileri</h3>
-          <p>{marketing}</p>
+          <p style={{ whiteSpace: 'pre-wrap' }}>{marketing}</p>
         </div>
       )}
 
@@ -164,6 +164,11 @@ function App() {
             📋
           </button>
           <h3>SEO Açıklamaları</h3>
+          {seo.title && (
+            <div className="seo-title-container">
+              <strong>Başlık:</strong> {seo.title}
+            </div>
+          )}
           {seo.hashtags.length > 0 && (
             <div className="tags-container">
               {seo.hashtags.map((tag, idx) => (
